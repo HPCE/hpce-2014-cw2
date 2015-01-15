@@ -1,0 +1,7 @@
+*.o
+*.exe
+*.obj
+*.raw
+*.mp3
+*.wav
+passthrough

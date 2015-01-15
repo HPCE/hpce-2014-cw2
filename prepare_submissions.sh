@@ -1,0 +1,22 @@
+#!/bin/bash
+
+FILES="";
+
+if [ ! -f .git ]; then
+	echo "Warning: there appears to be no git repository here";
+else
+	FILES="$FILES .git";
+fi
+
+WANTED="./makefile ./audio/passthrough.c ./audio/print_audio.c ./audio/signal_generator.c ./audio/fir_filter.c";
+WANTED="${WANTED} ./audio/corrupter.sh ./audio/all_firs_direct.sh ./audio/all_firs_staged.sh";
+
+for W in $WANTED; do
+	if [ ! -f $W ]; then
+		echo "Warning: no file called $W";
+	else
+		FILES="${FILES} ${W}";
+	fi
+done
+
+tar -czf hpce_cw2_${USER}.tar.gz ${FILES};
