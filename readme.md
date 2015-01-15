@@ -1418,7 +1418,7 @@ Submission
 **Task**: To prepare this coursework for submission, go
 into the root directory and do:
 
-    ./prepare_submission.sh
+    ./prepare_submissions.sh
 
 This should create a submission tarball in the directory below
 your work. Note that it will include the git repository (.git),
