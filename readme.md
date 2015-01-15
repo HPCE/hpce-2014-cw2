@@ -1386,12 +1386,26 @@ desktop it takes just over six times longer than the streaming method.
 Conclusion
 ----------
 
-**Task**: Add the following to the end of your makefile:
+**Task**: Add the following to the end of `./audio/makefile`:
 
-    tools : merge fir_filter passthrough signal_generator
+    filters : merge fir_filter passthrough signal_generator
 
 This will allow users to go into the `audio` directory and
-type `make tools`, and all your files will be updated.
+type `make filters`, and all your files will be updated. Also
+add the following to the end of `./makefile`:
+
+    filters :
+        cd audio && $(MAKE) 
+
+    all : tools filters
+
+which means that from the base directory you can can type:
+
+    make all
+    
+and it will build all the tools and all the audio filters
+(and if you do `make -j 4` it will use up to 4 parallel
+processes to do so).
 
 **Task**: Once it is all working, do another commit of
 your source files (don't forget to add/stage the new .c and .sh files).
@@ -1401,48 +1415,33 @@ point.
 Submission
 ==========
 
-**Task**: To prepare this coursework for submission, you need
-to clean your submission of all the intermediate files, such as
-executables, downloaded packages, mp3 files, ... What you should
-be left with is the original structure and files, and the various
-scripts, makefiles, and c files that you have created. (Make
-sure you don't delete the source files you have created!)
+**Task**: To prepare this coursework for submission, go
+into the root directory and do:
 
-Once you have cleaned the directories, go into the root directory
-and do:
-\begin{verbatim}
-tar -czf ../hpce_cw2_your-login.tar.gz .
-\end{verbatim}
-where the login in ``hpce\_cw2\_your-login'' is your standard college login. For
-example, mine would be called ``hpce\_cw2\_dt10.tar.gz''.
+    ./prepare_submission.sh
+
 This should create a submission tarball in the directory below
-your work. Note that the tarball should be quite small, around
-100 KB to 200 KB. If it seems much bigger, make sure you haven't
-accidentally included any mp3s or executables.
+your work. Note that it will include the git repository (.git),
+which will contain the history of your work.
 
 Before submitting, you should do a number of checks to make sure
 it works:
-\begin{enumerate}
-\item Extract the tarball to a fresh directory.
-\item Run {\ttfamily make tools} in the base of the submission to build sox and lame.
-\item Go into the audio directory and run {\ttfamily make tools}.
-\item Choose an mp3, and do {\ttfamily ./mp3\_file\_src.sh your\_mp3.mp3 | ./corrupter.sh | ./all\_firs\_direct.sh > /dev/null}.
-\item Go into the experiment directory, copy an mp3 into ``inputs'', and try running {\ttfamily make all.csv}.
-\end{enumerate}
+1. Extract the tarball to a fresh directory.
+2. `make all` in the base of the submission to build everything.
+3. Go into the audio directory and run `make tools`.
+4. Choose an mp3, and `./mp3_file_src.sh your_mp3.mp3 | ./corrupter.sh | ./all_firs_direct.sh > /dev/null`.
+
 If that all works, submit your tarball via blackboard.
 
 Congratulations! You now know how to:
-\begin{itemize}
-\item Build and install random software packages without being root.
-\item Automate the creation of build environments.
-\item Declare dependency graphs using makefiles.
-\item Perform parallel processing using makefiles.
-\item Exploit recursive parallelism.~\footnote{Remember that sox and lame will get
-built together}.
-\item Integrate together multiple disparate tools using pipes.
-\item Exploit streaming parallelism using pipes.
-\end{itemize}
 
+1. Build and install random software packages without being root.
+2. Automate the creation of build environments.
+3. Declare dependency graphs using makefiles.
+4. Perform parallel processing using makefiles.
+5. Exploit recursive parallelism (Remember that sox and lame will get built together).
+6. Integrate together multiple disparate tools using pipes.
+7. Exploit streaming parallelism using pipes.
 
 Endnotes
 ========
@@ -1450,10 +1449,10 @@ Endnotes
 Environments
 ------------
 
-Lame should compile and work everywhere, though sox
-may be more problematic. If necessary, record to an
-mp3 or wav (there is no real need to listen, except
-to prove to yourself it is streamin).
+Lame and sox should (!) compile and work everywhere, though
+sox may refuse to play audio in some environments. If
+necessary, record to an mp3 or wav (there is no real need
+to listen, except to prove to yourself it is streaming).
 
 
 ### Ubuntu/Debian : Private installation
