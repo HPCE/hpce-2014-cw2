@@ -2,7 +2,7 @@
 
 FILES="";
 
-if [ ! -f .git ]; then
+if [ ! -d .git ]; then
 	echo "Warning: there appears to be no git repository here";
 else
 	FILES="$FILES .git";
@@ -20,4 +20,4 @@ for W in $WANTED; do
 	fi
 done
 
-tar -czf hpce_cw2_${USER}.tar.gz ${FILES};
+tar -czf hpce_cw2_${USER}.tar.gz $FILES;
