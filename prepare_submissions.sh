@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES=".gitignore */.gitignore";
+FILES=".gitignore */.gitignore audio/coeffs/*.csv";
 
 if [ ! -d .git ]; then
 	echo "Warning: there appears to be no git repository here";
