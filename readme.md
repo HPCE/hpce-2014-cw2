@@ -70,7 +70,7 @@ Particular things it relies on are:
   in most systems (even when it isn't the default).
 
 - **Make**: While traditionally used just for building
-  programs, ``make'' can also be used for the general
+  programs, "make" can also be used for the general
   co-ordination of many programs working together. We
   will specifically use GNU make.
   
@@ -153,15 +153,15 @@ doing this:
 
 2. Extract the sources from the tarball.
 
-3. Run the ``./configure'' script, which allows the package
+3. Run the "./configure" script, which allows the package
    to look at your environment and see what is currently installed,
    and allows the user to specify where the new package will be
    installed.
    
-4. Execute ``make'' to build all the sources and produce
+4. Execute "make" to build all the sources and produce
    the executable.
    
-5. Do ``make install'' to install the binaries and documentation.
+5. Do "make install" to install the binaries and documentation.
 
 The process is not completely standardised, but for many packages
 it looks the same.
@@ -186,11 +186,14 @@ exist, the info pages are usually more detailed and better structured
 (and the man page may just be a [stub](http://xkcd.com/912/), though
 some tools only have man pages.
 
+_Note: if you have problems getting the tar-ball, have a look at Issue [#1](https://github.com/HPCE/hpce-2014-cw2/issues/1). Thanks to @farrell236._
+
 Here we are specifying that the file should be downloaded to
 the `packages` directory. Once curl finishes, do `ls packages`
 to check that you can see the download file there.
 
 Note that this as a distinct step in the build process:
+
 1. we depended on nothing,
 2. executed the curl command,
 3. and the output of that command was the tarball.
@@ -202,7 +205,7 @@ We now need to extract the contents of the tarball.
 To keep things clean, we'll extract the contents to
 the directory called `build` This will keep things
 separated, so that if necessary (e.g. to save space), we can
-delete the contents of ``build'' without losing anything.
+delete the contents of `build` without losing anything.
 
 You should still be at the base directory, but that is not
 where we want to extract. Do `cd build` to get into the
@@ -249,7 +252,7 @@ platforms, but to achieve this they have to enable and disable
 certain features, or specify different `#define`s at
 compile time. A commonly used approach is to use
 [GNU Autotools](http://en.wikipedia.org/wiki/GNU_build_system),
-which attempts to make this ``easy'', and is reasonably portable
+which attempts to make this "easy", and is reasonably portable
 
 (Although nobody really thinks that autotools are good - they
 just mostly work and everything else is worse. They are the
@@ -290,21 +293,21 @@ Well, except... it won't (at least on systems I tried). The error
 message should tell you what the problem is, and to solve it
 you can use the following:
 
-1. The {\ttfamily pwd} command prints the current directory.
+1. The `pwd` command prints the current directory.
 2. Enclosing a command `cmd` in `$(cmd)` captures the output
    of that variable.
 3. You can concatenate strings in the shell.
    
 So for example:   
    
-   X=`pwd`;
-   echo $X
+    X=`pwd`;
+    echo $X
 
-captures the output of {\ttfamily pwd} into the shell
+captures the output of `pwd` into the shell
 variable X, then prints the value of X using echo.
 Combining that with string concatenation, you can do:
 
-    X=`pwd`
+    X=`pwd`;
     echo "$X/../../local"
 
 which should now print your current directory followed
@@ -330,11 +333,16 @@ a missing library. Some of those can be fixed easily with
 your package manager, but if you find uncorrectable errors,
 switch to a controlled environment like Cygwin. Building
 the environment should not involve any debugging or
-difficulty, so don't get caught up trying to debug problems.)
+difficulty, so don't get caught up trying to debug problems.
+If you come across any problems, raise an [issue](https://github.com/HPCE/hpce-2014-cw2/issues),
+and either I or someone else might be able to help. Don't forget to
+include actionable information though.
+)
 
 Once configuration has finished, a new file called `Makefile`
 will have appeared, which is the input to the next stage.
 Again, notice the pattern:
+
 1. the required input is the configure file;
 2. the action is to run that configure file;
 3. the output is the Makefile.
@@ -991,7 +999,7 @@ effect clearer, use the same approach as before to remove the speed limitations:
 
     ./mp3_file_src.sh bn9th_m4.mp3 |  ./passthrough  > /dev/null
 
-Depending on your system, you may now see that ``passthrough'' is taking
+Depending on your system, you may now see that `passthrough` is taking
 up one entire CPU core, while lame is taking less CPU time. At the
 very least, `passthrough` will be using a lot of CPU to do not very much.
 
@@ -1016,7 +1024,7 @@ view the target `passthrough` (i.e. the executable) already exists, and
 has a more recent timestamp than `passthrough.c`. You have two ways to force it to
 do the make:
 
-1. Modify the source file ``passthrough.c`, i.e. make sure the
+1. Modify the source file `passthrough.c`, i.e. make sure the
    file's modification date is updated to now (which will be more
    recent than the . You could do that by simply
 	odifying and saving the C file, or by using the `touch` command.
@@ -1249,7 +1257,7 @@ $x'_1,x'_2,...$ is defined as:
     x'_i = \sum_{j=0}^{k-1} x_{i-j} c_{j}
 
 In the `audio/coeffs` directory you'll find a number of coefficient sets
-for notch filters, with filenames of the form ``fXXX.csv'', where XXXX is the
+for notch filters, with filenames of the form `fXXX.csv`, where XXXX is the
 centre frequency. Different filters have different orders.
 
 **Task**: Write a program called `audio\fir_filter.c` that takes as an
@@ -1460,6 +1468,6 @@ to listen, except to prove to yourself it is streaming).
 
 By default the headers and libs for ALSA sound are not
 installed in all distributions, though the libraries are. You
-need to install ``libasound2-dev'' using whatever package manager
+need to install `libasound2-dev` using whatever package manager
 you used.
 
