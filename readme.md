@@ -1215,16 +1215,16 @@ are no intermediate files, so it can keep going for ever.
 
 The effect of this is more obvious if you redirect the output to `/dev/null`:
 
-./merge \
-    <(./merge \
-        <(./mp3_file_src.sh bn9th_m4.mp3) \
-        <(./merge <(./signal_generator 600)  <(./signal_generator 700)) \
-    ) \
-    <(./merge \
-        <(./merge <(./signal_generator 800)  <(./signal_generator 900)) \
-        <(./merge <(./signal_generator 1000)  <(./signal_generator 100)) \
-    ) \
-    > /dev/null
+    ./merge \
+        <(./merge \
+            <(./mp3_file_src.sh bn9th_m4.mp3) \
+            <(./merge <(./signal_generator 600)  <(./signal_generator 700)) \
+        ) \
+        <(./merge \
+            <(./merge <(./signal_generator 800)  <(./signal_generator 900)) \
+            <(./merge <(./signal_generator 1000)  <(./signal_generator 100)) \
+        ) \
+        > /dev/null
 
 The CPU usage should shoot up, and on my 8-core desktop I get about 6
 of the cores fully utilised.
@@ -1426,6 +1426,7 @@ which will contain the history of your work.
 
 Before submitting, you should do a number of checks to make sure
 it works:
+
 1. Extract the tarball to a fresh directory.
 2. `make all` in the base of the submission to build everything.
 3. Go into the audio directory and run `make tools`.
