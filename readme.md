@@ -574,10 +574,9 @@ Each rule consists of three parts:
 
 - **target**: The name of the target file (or files) that the rule can build - the intended 'output' of the rule
 
-- **dependencies** Zero or more files which must already exist
-	before the rule can execute.
+- **dependencies** Zero or more files which must already exist before the rule can execute.
 
-- **commands* Zero or more shell commands to execute in order to build the target.
+- **commands** Zero or more shell commands to execute in order to build the target.
 
 The general format of a rule is:
 
@@ -638,9 +637,11 @@ Open the text file in a text editor, and add the variable and rule:
 
 This first defines a convenience variable called `SRC_URL`, which
 describes the web address, and then defines the actual rule:
+
 - the target is `packages/sox-14.4.1.tar.gz`;
 - there are no dependencies (as it comes from the network);
 - and the command just executes curl.
+
 Where the variable `SRC_URL` is referenced using `$(SRC_URL)` it will expand into the full path.
 
 **Note-1**: the white-space before `curl` is a tab character. Do not use
