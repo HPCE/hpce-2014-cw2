@@ -572,7 +572,7 @@ how to create some target file. For example, we want our build
 system to eventually create the target executable `local/bin/sox`.
 Each rule consists of three parts:
 
-- **target**: The name of the target file (or files) that the rule can build.
+- **target**: The name of the target file (or files) that the rule can build - the intended 'output' of the rule
 
 - **dependencies** Zero or more files which must already exist
 	before the rule can execute.
