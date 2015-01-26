@@ -572,7 +572,7 @@ how to create some target file. For example, we want our build
 system to eventually create the target executable `local/bin/sox`.
 Each rule consists of three parts:
 
-- **target**: The name of the target file (or files) that the rule can build.
+- **target**: The name of the target file (or files) that the rule can build - the intended 'output' of the rule
 
 - **dependencies** Zero or more files which must already exist
 	before the rule can execute.
@@ -947,7 +947,7 @@ also expecting a wav header so it knows what kind of data it is, so we'll need t
 manually specify that instead.
 
 If you look at the documentation for lame, it specifies the [`-t` option](http://lame.cvs.sourceforge.net/viewvc/lame/lame/doc/html/detailed.html#t)
-to get raw output, so update both `mp3\_file\_src.sh` and `mp3\_url\_src.sh`
+to get raw output, so update both `mp3_file_src.sh` and `mp3_url_src.sh`
 to pass that flag to lame.
 
 The [documentation for sox](http://sox.sourceforge.net/sox.html) details multiple settings which can be used
