@@ -1,3 +1,52 @@
+Notes on deadlines
+==================
+
+As discussed in the lecture, I accidently didn't make this publicly
+visible until two days after the official release date, so I think
+to be fair, I should stick to the "two weeks for each of the first
+four courseworks" rule.
+
+As I also mentioned, the Tuesday deadlines were rather arbitrary,
+based on the lectures, and while no-one seemed to have any particular
+preference (certainly no-one wanted them earlier), I'm going to go
+ahead and shift the deadlines back by two days, en masse. My rationale is:
+- Lots of people get work done over the weekend, and I have most
+  of my teaching Mon/Tue, so it is difficult to come back on issues
+  quickly.
+- Providing a slightly bigger gap between lectures and the coursework
+  backing them probably makes sense from a structural/educational point
+  of view.
+
+So the next three courseworks will still be released on a week by week
+basis, with two weeks to do each:
+
+- [CW2](https://github.com/HPCE/hpce-2014-cw2): Issued Jan 22nd, due Feb 5rd ** You are here**
+- CW3: Issued Jan 29th, due Feb 12th
+- CW4: Issued Feb 5th, due Feb 19th
+
+The last two courseworks do not overlap, and deadlines are:
+- CW5: Issued Feb 19th, due Mar 3rd
+- CW6: Issued Mar 4th, due Mon 16th
+
+The deadlines are (still) designed to get out of the way
+of DoC revision and exams in weeks 10 and 11, and
+other coursework heavy end of term things.
+
+As always: I'm aware that this course will clash with a lot of stuff
+(interim reports, other courseworks, and so on), so I'm generally
+quite happy to consider cohort-wide modifications, as long as no-one
+is disadvantaged. That said, I know people plan around the deadlines,
+so I don't want to mess things around too much, or just end up
+randomly prolonging things (that ended up happenind a bit last term).
+
+Oh, and while I'm abusing github as a message-board: in case
+it's not obvious, I'm quite happy to answer questions about
+the courseworks (or lectures) in person, if that's easier
+than using issues. Previous years I've sometimes gone and
+hung around at lunch-times in the level 5 lab on one or
+two days a week; I can do that too if there is demand: e.g. Thursday
+at 1pm works for me.
+
 Goals
 =====
 
