@@ -1170,8 +1170,13 @@ We can use that to quickly evaluate the scaling of the program:
     NS="1 2 4 8 16 32 64 128 256 512 1024"; # What to measure over
     for n in $NS; do
         echo $n;
-        time -f %e cat /dev/zero | head -c 1000000 | ./passthrough $n > /dev/null
+        /usr/bin/time -f %e cat /dev/zero | head -c 1000000 | ./passthrough $n > /dev/null
     done
+    
+_Note: I switched from `time` to `\usr\bin\time` in this command to tackle
+[the problem](https://github.com/HPCE/hpce-2014-cw2/issues/7) found by @AugustineTan,
+where `time` won't take the `-f %e` input arguments. The main point is to get
+the timing data out in a format that we could analyse and graph._
 
 From here it is possible to see how we are approaching
 your function timer from the matlab exercise. Instead
