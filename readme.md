@@ -873,7 +873,7 @@ are getting sick of Beethoven), you can create another file
 called `mp3_sink.sh`, containing:
     
     #!/bin/bash
-    local/bin/lame -r -s 44.1 --signed --bitwidth 16 - $1
+    ../local/bin/lame -r -s 44.1 --signed --bitwidth 16 - $1
 
 This will then let you do commands such as:
 
