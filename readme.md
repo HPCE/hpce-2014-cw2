@@ -474,10 +474,9 @@ you'll need to change the various names from `sox` to `lame` as you
 go through.
 
 _Note: @bwh10 has identified [a build problem with gcc 4.9+](https://github.com/HPCE/hpce-2014-cw2/issues/4)
-that wasn't identified by my test setups. I will try to integrate it
-into the package, as I don't want to complicate the setup (that
-isn't the point of the exercise). That said, @bwh10 gives exactly
-the steps needed to correct the problem (if it occurs), so they can
+that wasn't identified by my test setups. @bwh10 gives 
+the steps needed to correct the problem (if it occurs), or there
+is an alternate solution given in the issue, so they can
 be integrated directly into your makefile if you wish._
 
 Checking it works
