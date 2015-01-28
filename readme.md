@@ -508,7 +508,11 @@ to play to the audio device due to the system setup. If you are using
 cygwin (32 or 64 bit), and on many linuxes, everything be fine. If you are
 using your own linux, then you can install `libasound2-dev`
 to get audio support. If you can't get it to play live audio at
-all, then don't worry. As long as `sox` builds it is fine.
+all, then don't worry. As long as `sox` builds it is fine._
+
+_A more [obscure issue](https://github.com/HPCE/hpce-2014-cw2/issues/3) has been
+observed on one cygwin install, due to some sort of problems with [globbing](http://en.wikipedia.org/wiki/Glob_%28programming%29). If you see
+errors from `sox` referring to "glob", try looking at the issue.)_
 
 The three commands correspond to three stages in a parallel processing pipeline:
 
