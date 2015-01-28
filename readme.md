@@ -24,7 +24,21 @@ basis, with two weeks to do each:
 - CW3: Issued Jan 29th, due Feb 12th
 - CW4: Issued Feb 5th, due Feb 19th
 
-The last two courseworks do not overlap, and deadlines are:
+As part of the _specification_ for the formative courseworks
+(these are not extensions, it is part of the spec), you have
+an option on a single block of two "flexible days". As professional
+engineers you may _plan_ to exercise these in a way that helps you
+achieve the best outcome for your client (you). Everyone gets to
+allocate their two flexible days to just one of the first four
+courseworks (or not at all), once used, it is gone. Submission
+after the official deadline will be considered to be implicit
+exercise of the option. (_The main goal here is to give people
+some flexibility - these courseworks are formative, they are
+not supposed to stress people out, and they are marked generously,
+but they do need to be done on a regular schedule_).
+
+The last two courseworks do not overlap, there are no
+flexible days, and the deadlines are:
 - CW5: Issued Feb 19th, due Mar 3rd
 - CW6: Issued Mar 4th, due Mon 16th
 
@@ -37,7 +51,7 @@ As always: I'm aware that this course will clash with a lot of stuff
 quite happy to consider cohort-wide modifications, as long as no-one
 is disadvantaged. That said, I know people plan around the deadlines,
 so I don't want to mess things around too much, or just end up
-randomly prolonging things (that ended up happenind a bit last term).
+randomly prolonging things (that ended up happening a bit last term).
 
 Oh, and while I'm abusing github as a message-board: in case
 it's not obvious, I'm quite happy to answer questions about
