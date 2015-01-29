@@ -1194,6 +1194,11 @@ as comma-seperated-value lines containing:
 - The left channel in decimal (remember it is signed 16-bit).
 - The right channel in decimal
 
+_Note: The file 200hz.raw [was missing](https://github.com/HPCE/hpce-2014-cw2/issues/8) in
+the original upload, as I was over-eager in trying to stop large binary files
+(mp3, wav, raw, exe) getting into git via the `.gitignore` file. Thanks to @bwh10.
+You can get this file by doing a "git pull" in your local repository (in your git GUI,
+or on the command line)._
 
 For example:
 
@@ -1221,6 +1226,11 @@ Should produce the output:
 The exact number of output digits for the "time" column is not
 that important, but it should show enough digits that it is possible
 to see the time changing.
+
+Note that the lines can be read as:
+- `0, 0/44100, sin(0 * 1/44100 * 200 * 2*pi)*30000, sin(0 * 1/44100 * 200 * 2*pi)*30000`
+- `1, 1/44100, sin(1 * 1/44100 * 200 * 2*pi)*30000, sin(1 * 1/44100 * 200 * 2*pi)*30000`
+- `2, 2/44100, sin(2 * 1/44100 * 200 * 2*pi)*30000, sin(2 * 1/44100 * 200 * 2*pi)*30000`
     
 _This task is intentionally easy; experience suggests that people
 won't create debugging tools unless they are forced too._
