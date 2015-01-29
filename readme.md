@@ -1,3 +1,66 @@
+Notes on deadlines
+==================
+
+As discussed in the lecture, I accidently didn't make this publicly
+visible until two days after the official release date, so I think
+to be fair, I should stick to the "two weeks for each of the first
+four courseworks" rule.
+
+As I also mentioned, the Tuesday deadlines were rather arbitrary,
+based on the lectures, and while no-one seemed to have any particular
+preference (certainly no-one wanted them earlier), I'm going to go
+ahead and shift the deadlines back by two days, en masse. My rationale is:
+- Lots of people get work done over the weekend, and I have most
+  of my teaching Mon/Tue, so it is difficult to come back on issues
+  quickly.
+- Providing a slightly bigger gap between lectures and the coursework
+  backing them probably makes sense from a structural/educational point
+  of view.
+
+So the next three courseworks will still be released on a week by week
+basis, with two weeks to do each:
+
+- [CW2](https://github.com/HPCE/hpce-2014-cw2): Issued Jan 22nd, due Feb 5th ** You are here**
+- CW3: Issued Jan 29th, due Feb 12th
+- CW4: Issued Feb 5th, due Feb 19th
+
+As part of the _specification_ for the formative courseworks
+(these are not extensions, it is part of the spec), you have
+an option on a single block of two "flexible days". As professional
+engineers you may _plan_ to exercise these in a way that helps you
+achieve the best outcome for your client (you). Everyone gets to
+allocate their two flexible days to just one of the first four
+courseworks (or not at all), once used, it is gone. Submission
+after the official deadline will be considered to be implicit
+exercise of the option. (_The main goal here is to give people
+some flexibility - these courseworks are formative, they are
+not supposed to stress people out, and they are marked generously,
+but they do need to be done on a regular schedule_).
+
+The last two courseworks do not overlap, there are no
+flexible days, and the deadlines are:
+- CW5: Issued Feb 19th, due Mar 3rd
+- CW6: Issued Mar 4th, due Mon 16th
+
+The deadlines are (still) designed to get out of the way
+of DoC revision and exams in weeks 10 and 11, and
+other coursework heavy end of term things.
+
+As always: I'm aware that this course will clash with a lot of stuff
+(interim reports, other courseworks, and so on), so I'm generally
+quite happy to consider cohort-wide modifications, as long as no-one
+is disadvantaged. That said, I know people plan around the deadlines,
+so I don't want to mess things around too much, or just end up
+randomly prolonging things (that ended up happening a bit last term).
+
+Oh, and while I'm abusing github as a message-board: in case
+it's not obvious, I'm quite happy to answer questions about
+the courseworks (or lectures) in person, if that's easier
+than using issues. Previous years I've sometimes gone and
+hung around at lunch-times in the level 5 lab on one or
+two days a week; I can do that too if there is demand: e.g. Thursday
+at 1pm works for me.
+
 Goals
 =====
 
@@ -70,7 +133,7 @@ Particular things it relies on are:
   in most systems (even when it isn't the default).
 
 - **Make**: While traditionally used just for building
-  programs, ``make'' can also be used for the general
+  programs, "make" can also be used for the general
   co-ordination of many programs working together. We
   will specifically use GNU make.
   
@@ -153,15 +216,15 @@ doing this:
 
 2. Extract the sources from the tarball.
 
-3. Run the ``./configure'' script, which allows the package
+3. Run the "./configure" script, which allows the package
    to look at your environment and see what is currently installed,
    and allows the user to specify where the new package will be
    installed.
    
-4. Execute ``make'' to build all the sources and produce
+4. Execute "make" to build all the sources and produce
    the executable.
    
-5. Do ``make install'' to install the binaries and documentation.
+5. Do "make install" to install the binaries and documentation.
 
 The process is not completely standardised, but for many packages
 it looks the same.
@@ -186,11 +249,14 @@ exist, the info pages are usually more detailed and better structured
 (and the man page may just be a [stub](http://xkcd.com/912/), though
 some tools only have man pages.
 
+_Note: if you have problems getting the tar-ball, have a look at Issue [#1](https://github.com/HPCE/hpce-2014-cw2/issues/1). Thanks to @farrell236._
+
 Here we are specifying that the file should be downloaded to
 the `packages` directory. Once curl finishes, do `ls packages`
 to check that you can see the download file there.
 
 Note that this as a distinct step in the build process:
+
 1. we depended on nothing,
 2. executed the curl command,
 3. and the output of that command was the tarball.
@@ -202,7 +268,7 @@ We now need to extract the contents of the tarball.
 To keep things clean, we'll extract the contents to
 the directory called `build` This will keep things
 separated, so that if necessary (e.g. to save space), we can
-delete the contents of ``build'' without losing anything.
+delete the contents of `build` without losing anything.
 
 You should still be at the base directory, but that is not
 where we want to extract. Do `cd build` to get into the
@@ -249,7 +315,7 @@ platforms, but to achieve this they have to enable and disable
 certain features, or specify different `#define`s at
 compile time. A commonly used approach is to use
 [GNU Autotools](http://en.wikipedia.org/wiki/GNU_build_system),
-which attempts to make this ``easy'', and is reasonably portable
+which attempts to make this "easy", and is reasonably portable
 
 (Although nobody really thinks that autotools are good - they
 just mostly work and everything else is worse. They are the
@@ -290,21 +356,21 @@ Well, except... it won't (at least on systems I tried). The error
 message should tell you what the problem is, and to solve it
 you can use the following:
 
-1. The {\ttfamily pwd} command prints the current directory.
+1. The `pwd` command prints the current directory.
 2. Enclosing a command `cmd` in `$(cmd)` captures the output
    of that variable.
 3. You can concatenate strings in the shell.
    
 So for example:   
    
-   X=`pwd`;
-   echo $X
+    X=`pwd`;
+    echo $X
 
-captures the output of {\ttfamily pwd} into the shell
+captures the output of `pwd` into the shell
 variable X, then prints the value of X using echo.
 Combining that with string concatenation, you can do:
 
-    X=`pwd`
+    X=`pwd`;
     echo "$X/../../local"
 
 which should now print your current directory followed
@@ -330,11 +396,16 @@ a missing library. Some of those can be fixed easily with
 your package manager, but if you find uncorrectable errors,
 switch to a controlled environment like Cygwin. Building
 the environment should not involve any debugging or
-difficulty, so don't get caught up trying to debug problems.)
+difficulty, so don't get caught up trying to debug problems.
+If you come across any problems, raise an [issue](https://github.com/HPCE/hpce-2014-cw2/issues),
+and either I or someone else might be able to help. Don't forget to
+include actionable information though.
+)
 
 Once configuration has finished, a new file called `Makefile`
 will have appeared, which is the input to the next stage.
 Again, notice the pattern:
+
 1. the required input is the configure file;
 2. the action is to run that configure file;
 3. the output is the Makefile.
@@ -465,6 +536,12 @@ The steps you should follow will be exactly the same as for `sox`, but
 you'll need to change the various names from `sox` to `lame` as you
 go through.
 
+_Note: @bwh10 has identified [a build problem with gcc 4.9+](https://github.com/HPCE/hpce-2014-cw2/issues/4)
+that wasn't identified by my test setups. @bwh10 gives 
+the steps needed to correct the problem (if it occurs), or there
+is an alternate solution given in the issue, so they can
+be integrated directly into your makefile if you wish._
+
 Checking it works
 -----------------
 
@@ -493,7 +570,11 @@ to play to the audio device due to the system setup. If you are using
 cygwin (32 or 64 bit), and on many linuxes, everything be fine. If you are
 using your own linux, then you can install `libasound2-dev`
 to get audio support. If you can't get it to play live audio at
-all, then don't worry. As long as `sox` builds it is fine.
+all, then don't worry. As long as `sox` builds it is fine._
+
+_A more [obscure issue](https://github.com/HPCE/hpce-2014-cw2/issues/3) has been
+observed on one cygwin install, due to some sort of problems with [globbing](http://en.wikipedia.org/wiki/Glob_%28programming%29). If you see
+errors from `sox` referring to "glob", try looking at the issue.)_
 
 The three commands correspond to three stages in a parallel processing pipeline:
 
@@ -564,12 +645,11 @@ how to create some target file. For example, we want our build
 system to eventually create the target executable `local/bin/sox`.
 Each rule consists of three parts:
 
-- **target**: The name of the target file (or files) that the rule can build.
+- **target**: The name of the target file (or files) that the rule can build - the intended 'output' of the rule
 
-- **dependencies** Zero or more files which must already exist
-	before the rule can execute.
+- **dependencies** Zero or more files which must already exist before the rule can execute.
 
-- **commands* Zero or more shell commands to execute in order to build the target.
+- **commands** Zero or more shell commands to execute in order to build the target.
 
 The general format of a rule is:
 
@@ -630,9 +710,11 @@ Open the text file in a text editor, and add the variable and rule:
 
 This first defines a convenience variable called `SRC_URL`, which
 describes the web address, and then defines the actual rule:
+
 - the target is `packages/sox-14.4.1.tar.gz`;
 - there are no dependencies (as it comes from the network);
 - and the command just executes curl.
+
 Where the variable `SRC_URL` is referenced using `$(SRC_URL)` it will expand into the full path.
 
 **Note-1**: the white-space before `curl` is a tab character. Do not use
@@ -854,7 +936,7 @@ are getting sick of Beethoven), you can create another file
 called `mp3_sink.sh`, containing:
     
     #!/bin/bash
-    local/bin/lame -r -s 44.1 --signed --bitwidth 16 - $1
+    ../local/bin/lame -r -s 44.1 --signed --bitwidth 16 - $1
 
 This will then let you do commands such as:
 
@@ -939,7 +1021,7 @@ also expecting a wav header so it knows what kind of data it is, so we'll need t
 manually specify that instead.
 
 If you look at the documentation for lame, it specifies the [`-t` option](http://lame.cvs.sourceforge.net/viewvc/lame/lame/doc/html/detailed.html#t)
-to get raw output, so update both `mp3\_file\_src.sh` and `mp3\_url\_src.sh`
+to get raw output, so update both `mp3_file_src.sh` and `mp3_url_src.sh`
 to pass that flag to lame.
 
 The [documentation for sox](http://sox.sourceforge.net/sox.html) details multiple settings which can be used
@@ -991,7 +1073,7 @@ effect clearer, use the same approach as before to remove the speed limitations:
 
     ./mp3_file_src.sh bn9th_m4.mp3 |  ./passthrough  > /dev/null
 
-Depending on your system, you may now see that ``passthrough'' is taking
+Depending on your system, you may now see that `passthrough` is taking
 up one entire CPU core, while lame is taking less CPU time. At the
 very least, `passthrough` will be using a lot of CPU to do not very much.
 
@@ -1016,7 +1098,7 @@ view the target `passthrough` (i.e. the executable) already exists, and
 has a more recent timestamp than `passthrough.c`. You have two ways to force it to
 do the make:
 
-1. Modify the source file ``passthrough.c`, i.e. make sure the
+1. Modify the source file `passthrough.c`, i.e. make sure the
    file's modification date is updated to now (which will be more
    recent than the . You could do that by simply
 	odifying and saving the C file, or by using the `touch` command.
@@ -1088,8 +1170,13 @@ We can use that to quickly evaluate the scaling of the program:
     NS="1 2 4 8 16 32 64 128 256 512 1024"; # What to measure over
     for n in $NS; do
         echo $n;
-        time -f %e cat /dev/zero | head -c 1000000 | ./passthrough $n > /dev/null
+        /usr/bin/time -f %e cat /dev/zero | head -c 1000000 | ./passthrough $n > /dev/null
     done
+    
+_Note: I switched from `time` to `\usr\bin\time` in this command to tackle
+[the problem](https://github.com/HPCE/hpce-2014-cw2/issues/7) found by @AugustineTan,
+where `time` won't take the `-f %e` input arguments. The main point is to get
+the timing data out in a format that we could analyse and graph._
 
 From here it is possible to see how we are approaching
 your function timer from the matlab exercise. Instead
@@ -1215,16 +1302,16 @@ are no intermediate files, so it can keep going for ever.
 
 The effect of this is more obvious if you redirect the output to `/dev/null`:
 
-./merge \
-    <(./merge \
-        <(./mp3_file_src.sh bn9th_m4.mp3) \
-        <(./merge <(./signal_generator 600)  <(./signal_generator 700)) \
-    ) \
-    <(./merge \
-        <(./merge <(./signal_generator 800)  <(./signal_generator 900)) \
-        <(./merge <(./signal_generator 1000)  <(./signal_generator 100)) \
-    ) \
-    > /dev/null
+    ./merge \
+        <(./merge \
+            <(./mp3_file_src.sh bn9th_m4.mp3) \
+            <(./merge <(./signal_generator 600)  <(./signal_generator 700)) \
+        ) \
+        <(./merge \
+            <(./merge <(./signal_generator 800)  <(./signal_generator 900)) \
+            <(./merge <(./signal_generator 1000)  <(./signal_generator 100)) \
+        ) \
+        > /dev/null
 
 The CPU usage should shoot up, and on my 8-core desktop I get about 6
 of the cores fully utilised.
@@ -1249,7 +1336,7 @@ $x'_1,x'_2,...$ is defined as:
     x'_i = \sum_{j=0}^{k-1} x_{i-j} c_{j}
 
 In the `audio/coeffs` directory you'll find a number of coefficient sets
-for notch filters, with filenames of the form ``fXXX.csv'', where XXXX is the
+for notch filters, with filenames of the form `fXXX.csv`, where XXXX is the
 centre frequency. Different filters have different orders.
 
 **Task**: Write a program called `audio\fir_filter.c` that takes as an
@@ -1426,6 +1513,7 @@ which will contain the history of your work.
 
 Before submitting, you should do a number of checks to make sure
 it works:
+
 1. Extract the tarball to a fresh directory.
 2. `make all` in the base of the submission to build everything.
 3. Go into the audio directory and run `make tools`.
@@ -1459,6 +1547,6 @@ to listen, except to prove to yourself it is streaming).
 
 By default the headers and libs for ALSA sound are not
 installed in all distributions, though the libraries are. You
-need to install ``libasound2-dev'' using whatever package manager
+need to install `libasound2-dev` using whatever package manager
 you used.
 
