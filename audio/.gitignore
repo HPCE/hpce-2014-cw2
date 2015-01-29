@@ -2,6 +2,7 @@
 *.exe
 *.obj
 *.raw
+!*.raw
 *.mp3
 *.wav
 passthrough
