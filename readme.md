@@ -1375,6 +1375,10 @@ then hopefully most of the sine-wave disappears. If you double up the filter:
 
 then it should be completely gone.
 
+_Note: I would think most machines could handle this FIR filter on two CPUs,
+but if it becomes choppy, check whether your CPUs are overloaded, i.e. both
+fir\_filter processes are permanently at 100% CPU._
+
 Note that I'm not looking for bit-exact results here -- I've deliberately
 left things ambiguous enough to give you some freedom of implementation
 (e.g. things like buffering), so don't worry if you get slightly different
