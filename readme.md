@@ -21,7 +21,7 @@ So the next three courseworks will still be released on a week by week
 basis, with two weeks to do each:
 
 - [CW2](https://github.com/HPCE/hpce-2014-cw2): Issued Jan 22nd, due Feb 5th ** You are here**
-- CW3: Issued Jan 29th, due Feb 12th
+- [CW3](https://github.com/HPCE/hpce-2014-cw2): Issued Jan 29th, due Feb 12th
 - CW4: Issued Feb 5th, due Feb 19th
 
 As part of the _specification_ for the formative courseworks
