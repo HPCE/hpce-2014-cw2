@@ -1152,16 +1152,16 @@ it will spin forever (you can kill it with ctrl-c). The
 of a stream, but we can also use it to return the first N
 bytes of a stream using `head -n N`. So if we do:
 
-    time cat /dev/zero | head -c 1000000 | ./passthrough > /dev/null
+    time cat /dev/zero | head -c 1024000 | ./passthrough > /dev/null
 
 tt will estimate the time take to process a million bytes.
 
 We would like to know how the execution time scales
 with n, so we could do:
 
-    time cat /dev/zero | head -c 1000000 | ./passthrough 1 > /dev/null
-    time cat /dev/zero | head -c 1000000 | ./passthrough 4 > /dev/null
-    time cat /dev/zero | head -c 1000000 | ./passthrough 16 > /dev/null
+    time cat /dev/zero | head -c 1024000 | ./passthrough 1 > /dev/null
+    time cat /dev/zero | head -c 1024000 | ./passthrough 4 > /dev/null
+    time cat /dev/zero | head -c 1024000 | ./passthrough 16 > /dev/null
 
 but that involves a lot of copying and pasting, and is
 error prone. Wherever possible we want to generate
@@ -1181,7 +1181,7 @@ We can use that to quickly evaluate the scaling of the program:
     NS="1 2 4 8 16 32 64 128 256 512 1024"; # What to measure over
     for n in $NS; do
         echo $n;
-        /usr/bin/time -f %e cat /dev/zero | head -c 1000000 | ./passthrough $n > /dev/null
+        /usr/bin/time -f %e cat /dev/zero | head -c 1024000 | ./passthrough $n > /dev/null
     done
     
 _Note: I switched from `time` to `\usr\bin\time` in this command to tackle
