@@ -1176,7 +1176,11 @@ We can use that to quickly evaluate the scaling of the program:
 _Note: I switched from `time` to `\usr\bin\time` in this command to tackle
 [the problem](https://github.com/HPCE/hpce-2014-cw2/issues/7) found by @AugustineTan,
 where `time` won't take the `-f %e` input arguments. The main point is to get
-the timing data out in a format that we could analyse and graph._
+the timing data out in a format that we could analyse and graph. @txsl then
+pointed out that [/usr/bin/time doesn't support -f on OSX](https://github.com/HPCE/hpce-2014-cw2/issues/14),
+which kind of destroys that too. My main point is to show that you
+can automate the execution of tests, and that you can automate
+the collection of the test results._
 
 From here it is possible to see how we are approaching
 your function timer from the matlab exercise. Instead
