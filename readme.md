@@ -1081,13 +1081,18 @@ One possible problem is that we are compiling it with no optimisations.
 Create a makefile in the `audio` directory, and add the statements:
 
     CPPFLAGS += -O2 -Wall
-    LDFLAGS += -lm
+    LDLIBS += -lm
 
 here we are adding three flags that will be passed to the C compiler:
 `-O2` turns on compiler optimisations; `-Wall` enables
 warnings (generally a useful thing to have for later stages); and
 `-lm` tells it to link to the maths library. If you wish, you could
 also add `-std=c99` to the flags, if you want to use C99 constructs.
+
+_Note: I accidently put `LDFLAGS=-lm` in the original version,
+which [isn't correct](https://github.com/HPCE/hpce-2014-cw2/issues/18)
+(though works on some compilers). Thanks to @salmanarif for both pointing
+out the bug and giving the solution._
 
 Now build it again with:
 
