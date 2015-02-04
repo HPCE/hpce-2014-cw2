@@ -1281,7 +1281,7 @@ In order to test this program, you'll need two raw files. You can generate them 
 For each command, let it run for a couple of seconds, then kill it with ctrl-c.
 You can now test your program `merge`, by doing:
 
-    ./merge ../tmp/sine1000.raw ../tmp/sine2000.raw
+    ./merge ../tmp/sine1000.raw ../tmp/sine2000.raw \
         | ./audio_sink.sh
 
 Going via temporary files means that data is forced onto disk (or
