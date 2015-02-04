@@ -1081,13 +1081,18 @@ One possible problem is that we are compiling it with no optimisations.
 Create a makefile in the `audio` directory, and add the statements:
 
     CPPFLAGS += -O2 -Wall
-    LDFLAGS += -lm
+    LDLIBS += -lm
 
 here we are adding three flags that will be passed to the C compiler:
 `-O2` turns on compiler optimisations; `-Wall` enables
 warnings (generally a useful thing to have for later stages); and
 `-lm` tells it to link to the maths library. If you wish, you could
 also add `-std=c99` to the flags, if you want to use C99 constructs.
+
+_Note: I accidently put `LDFLAGS=-lm` in the original version,
+which [isn't correct](https://github.com/HPCE/hpce-2014-cw2/issues/18)
+(though works on some compilers). Thanks to @salmanarif for both pointing
+out the bug and giving the solution._
 
 Now build it again with:
 
@@ -1127,6 +1132,12 @@ a larger buffer.
 it processes n samples (n*4 bytes). If the executable is given no arguments,
 it should use a default of 512 samples. If a positive integer is passed to
 passthrough, then that should be the number of samples used to buffer.
+
+_Note: for larger n you will find that the last batch of samples is smaller
+than you requested, causing a [warning](https://github.com/HPCE/hpce-2014-cw2/issues/15).
+This is fine as long as it happens at the end of the stream: if you are
+reading in 64 sample chunks, and there are 1000 samples in total, the final
+chunk cannot contain 64 samples.
 
 You can explore the effect of batch size on performance by
 looking at bandwidth using raw data. We've seen `/dev/null`
@@ -1176,7 +1187,11 @@ We can use that to quickly evaluate the scaling of the program:
 _Note: I switched from `time` to `\usr\bin\time` in this command to tackle
 [the problem](https://github.com/HPCE/hpce-2014-cw2/issues/7) found by @AugustineTan,
 where `time` won't take the `-f %e` input arguments. The main point is to get
-the timing data out in a format that we could analyse and graph._
+the timing data out in a format that we could analyse and graph. @txsl then
+pointed out that [/usr/bin/time doesn't support -f on OSX](https://github.com/HPCE/hpce-2014-cw2/issues/14),
+which kind of destroys that too. My main point is to show that you
+can automate the execution of tests, and that you can automate
+the collection of the test results._
 
 From here it is possible to see how we are approaching
 your function timer from the matlab exercise. Instead
