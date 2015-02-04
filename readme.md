@@ -1133,6 +1133,12 @@ it processes n samples (n*4 bytes). If the executable is given no arguments,
 it should use a default of 512 samples. If a positive integer is passed to
 passthrough, then that should be the number of samples used to buffer.
 
+_Note: for larger n you will find that the last batch of samples is smaller
+than you requested, causing a [warning](https://github.com/HPCE/hpce-2014-cw2/issues/15).
+This is fine as long as it happens at the end of the stream: if you are
+reading in 64 sample chunks, and there are 1000 samples in total, the final
+chunk cannot contain 64 samples.
+
 You can explore the effect of batch size on performance by
 looking at bandwidth using raw data. We've seen `/dev/null`
 as a pure "black-hole" sink, but we can also use `/dev/zero` as a
