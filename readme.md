@@ -1549,9 +1549,8 @@ Before submitting, you should do a number of checks to make sure
 it works:
 
 1. Extract the tarball to a fresh directory.
-2. `make all` in the base of the submission to build everything.
-3. Go into the audio directory and run `make tools`.
-4. Choose an mp3, and `./mp3_file_src.sh your_mp3.mp3 | ./corrupter.sh | ./all_firs_direct.sh > /dev/null`.
+2. `make all` in the base of the submission to build everything (including the filters in audio).
+3. Choose an mp3, and `./mp3_file_src.sh your_mp3.mp3 | ./corrupter.sh | ./all_firs_direct.sh > /dev/null`.
 
 _Note: for some systems it seems permissions
 [are not preserved](https://github.com/HPCE/hpce-2014-cw2/issues/13), but unfortunately
